@@ -1,0 +1,14 @@
+macros:
+  - name: "@any"
+    pattern: "[^, ]{0,1000}"
+pattern:
+  - $or:
+    - add:
+      - $deref:
+          main_reg: "@any"
+      - "@any"
+    - mov:
+      - $deref:
+          main_reg: "@any"
+      - "@any"
+  - cmp
