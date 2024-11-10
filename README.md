@@ -1,10 +1,10 @@
-# Funding TTPs with symbolic execution
+# Finding TTPs with symbolic execution
 
 # Debugging detection
 There is an example with instructions in `mini_debug_detection.c`
 
-In `liblzma.so.5.6.1.s` there is the objdump of the xz version with the backdoor.
-Look for the word "HERE" to find there the debug detection is made
+In `liblzma.so.5.6.1.s` there is the objdump of the xz version with the XZ backdoor.
+Look for the word "HERE" to find there the debug detection is made.
 
 # JASM
 You can find everything you need in the `JASM` repo:
