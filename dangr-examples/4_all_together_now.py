@@ -1,4 +1,3 @@
-import random
 import logging
 import time
 from dangr_rt import dangr_analysis, jasm_findings, expression, variables
@@ -42,7 +41,7 @@ def analyze_match(
     if not dangr.satisfiable(found_states):
         return True
 
-def analyze_random_match():
+def analyze_all_matches():
     start = time.time()
     jasm_matches = jasm_findings.structural_filter('', 'software_breakpoint_pattern')
 
@@ -65,4 +64,4 @@ def analyze_random_match():
 
     logger.info("Didn't found any match, solved in %s seconds", round(time.time() - start, 4))
 
-analyze_random_match()
+analyze_all_matches()

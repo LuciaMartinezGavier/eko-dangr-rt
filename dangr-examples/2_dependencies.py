@@ -24,7 +24,7 @@ def analyze_match(
 def analyze_dependencies():
     jasm_matches = jasm_findings.structural_filter('ignored', 'software_breakpoint_pattern')
 
-    # When we instanciate DangrAnlysis, the CFG is calculated.
+    # When we instantiate DangrAnlysis, the CFG is calculated.
     # This might take a while but it is calculated once
     logger.info("Creating CFG...")
     dangr = dangr_analysis.DangrAnalysis(

@@ -1,5 +1,4 @@
 """
-
 ############################ STRUCTURAL FILTER ############################
 
 To run Jasm all you need to do is call `jasm_findings.structural_filter`
@@ -22,7 +21,7 @@ pattern:
     - "@any-z"
     address-capture: cmp-address # also, we can define addresses to access later
 
-Sorry for the inconvienience!
+Sorry for the inconvenience!
 """
 
 from dangr_rt import jasm_findings

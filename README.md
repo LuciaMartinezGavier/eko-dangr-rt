@@ -3,7 +3,7 @@
 # Debugging detection
 There is an example with instructions in `mini_debug_detection.c`
 
-In `liblzma.so.5.6.1.s` there is the objdump of the xz version with the XZ backdoor.
+In `liblzma.so.5.6.1.s` there is the objdump of the XZ version with the backdoor.
 Look for the word "HERE" to find there the debug detection is made.
 
 # JASM

@@ -10,6 +10,7 @@ angr_logger.setLevel(logging.ERROR)
 logger = logging.getLogger("constraints")
 logger.setLevel(logging.INFO)
 
+ENDBR64_INSN = 0xFA1E0FF3
 
 def analyze_match(
     j_match: jasm_findings.JasmMatch,
@@ -34,7 +35,7 @@ def analyze_match(
 
     logger.info("Adding constraints")
     dangr.add_constraint(expression.Eq(y, z))
-    dangr.add_constraint(expression.Not(expression.Eq(dx, 0xFA1E0FF3)))
+    dangr.add_constraint(expression.Not(expression.Eq(dx, ENDBR64_INSN)))
 
     try:
         logger.info("Concretizing arguments...")
@@ -51,12 +52,11 @@ def analyze_match(
         logger.info("Could't find a path to the target %s", hex(cmp_address))
         return False
 
-    if not dangr.satisfiable(found_states):
-        return True
+    return not dangr.satisfiable(found_states)
 
 def analyze_random_match():
     jasm_matches = jasm_findings.structural_filter('', 'software_breakpoint_pattern')
-    random_idx = random.randint(0, len(jasm_matches) - 1) # try with 9 ;)
+    random_idx = random.randint(0, len(jasm_matches) - 1)
 
     start = time.time()
     logger.info("Let's analyze match number %s", random_idx)
